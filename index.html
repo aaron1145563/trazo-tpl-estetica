@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Nombre del Salón — Estética & Barbería</title>
+<meta name="description" content="Tu salón de belleza y barbería de confianza. Cortes, color, tratamientos y más. Agenda tu cita hoy."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--brand:#d4a373;--brand-dark:#b08550;--dark:#1a1a1a;--light:#faf8f5;--gray:#6b7280;--radius:16px}
+body{font-family:'Inter',sans-serif;color:var(--dark);background:var(--light)}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,26,26,.95);backdrop-filter:blur(10px);padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.5px}
+.logo span{color:var(--brand)}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:#ccc;font-size:13px;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--brand);color:#fff!important;padding:10px 20px;border-radius:50px;font-size:13px}
+.nav-cta:hover{background:var(--brand-dark)}
+@media(max-width:768px){.nav-links a:not(.nav-cta){display:none}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;background:linear-gradient(135deg,var(--dark) 0%,#2d2320 100%);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:var(--brand);opacity:.08;top:-150px;right:-100px}
+.hero h1{font-size:clamp(36px,7vw,64px);font-weight:800;line-height:1.1;margin-bottom:20px;letter-spacing:-1px}
+.hero h1 span{color:var(--brand)}
+.hero p{font-size:18px;color:#aaa;max-width:500px;margin:0 auto 32px}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{padding:14px 32px;border-radius:50px;font-size:15px;font-weight:700;border:none;cursor:pointer;transition:all .2s}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-dark);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.3)}
+.btn-outline:hover{border-color:var(--brand);color:var(--brand)}
+
+/* SERVICIOS */
+.section{padding:80px 24px;max-width:1100px;margin:0 auto}
+.section-tag{font-size:12px;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.section-title{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-1px;margin-bottom:40px}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.srv-card{background:#fff;border-radius:var(--radius);padding:32px;border:1px solid #e8e4df;transition:all .3s}
+.srv-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.srv-icon{font-size:36px;margin-bottom:16px}
+.srv-card h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.srv-card p{font-size:14px;color:var(--gray);line-height:1.6}
+.srv-price{font-size:20px;font-weight:800;color:var(--brand);margin-top:12px}
+
+/* GALERÍA */
+.gallery{padding:80px 24px;background:#fff}
+.gallery-inner{max-width:1100px;margin:0 auto}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.gallery-item{aspect-ratio:1;border-radius:var(--radius);background:#e8e4df;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--gray);overflow:hidden}
+
+/* HORARIO */
+.schedule{background:var(--dark);color:#fff;padding:80px 24px}
+.schedule-inner{max-width:800px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.schedule-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:15px}
+.schedule-row span:last-child{color:var(--brand);font-weight:600}
+@media(max-width:768px){.schedule-inner{grid-template-columns:1fr}}
+
+/* UBICACIÓN */
+.location{padding:80px 24px;background:#fff}
+.location-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.map-placeholder{aspect-ratio:16/10;border-radius:var(--radius);background:#e8e4df;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:14px}
+@media(max-width:768px){.location-inner{grid-template-columns:1fr}}
+
+/* WHATSAPP FLOAT */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:99;background:#25d366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:transform .2s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:32px;height:32px;fill:#fff}
+
+/* FOOTER */
+footer{background:var(--dark);color:#aaa;text-align:center;padding:32px 24px;font-size:12px}
+footer a{color:var(--brand)}
+
+/* ANIMACIONES */
+.reveal{opacity:0;transform:translateY(30px);transition:all .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><span>✂</span> Nombre del Salón</div>
+  <div class="nav-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#horario">Horario</a>
+    <a href="#ubicacion">Ubicación</a>
+    <a href="#contacto" class="nav-cta">Agendar cita</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>Tu <span>estilo</span>, nuestra<br/>pasión</h1>
+    <p>Cortes, color, tratamientos capilares y más. Agenda tu cita hoy y luce increíble.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/521234567890?text=Hola,%20quiero%20agendar%20una%20cita" class="btn btn-primary">Agendar por WhatsApp</a>
+      <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="servicios">
+  <div class="section-tag">Nuestros servicios</div>
+  <h2 class="section-title">Todo para tu imagen</h2>
+  <div class="services-grid">
+    <div class="srv-card reveal">
+      <div class="srv-icon">✂️</div>
+      <h3>Corte de cabello</h3>
+      <p>Cortes modernos y clásicos para dama y caballero. Asesoría personalizada.</p>
+      <div class="srv-price">Desde $120</div>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-icon">🎨</div>
+      <h3>Color y mechas</h3>
+      <p>Tintes, balayage, mechas y decoloración con productos de primera calidad.</p>
+      <div class="srv-price">Desde $350</div>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-icon">💆</div>
+      <h3>Tratamientos</h3>
+      <p>Keratina, botox capilar, hidratación profunda. Tu cabello como nuevo.</p>
+      <div class="srv-price">Desde $250</div>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-icon">💅</div>
+      <h3>Uñas</h3>
+      <p>Manicure, pedicure, acrílicas, gelish y diseños personalizados.</p>
+      <div class="srv-price">Desde $150</div>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-icon">🧔</div>
+      <h3>Barbería</h3>
+      <p>Recorte de barba, afeitado clásico, diseño de barba profesional.</p>
+      <div class="srv-price">Desde $80</div>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-icon">💄</div>
+      <h3>Maquillaje</h3>
+      <p>Maquillaje social, de novia, para eventos especiales y sesiones fotográficas.</p>
+      <div class="srv-price">Desde $400</div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="galeria">
+  <div class="gallery-inner">
+    <div class="section-tag">Nuestro trabajo</div>
+    <h2 class="section-title">Galería</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">Foto 1</div>
+      <div class="gallery-item reveal">Foto 2</div>
+      <div class="gallery-item reveal">Foto 3</div>
+      <div class="gallery-item reveal">Foto 4</div>
+      <div class="gallery-item reveal">Foto 5</div>
+      <div class="gallery-item reveal">Foto 6</div>
+    </div>
+  </div>
+</section>
+
+<section class="schedule" id="horario">
+  <div class="schedule-inner">
+    <div>
+      <div class="section-tag" style="color:var(--brand)">Horario</div>
+      <h2 class="section-title" style="color:#fff">¿Cuándo nos visitas?</h2>
+      <p style="color:#aaa">Te esperamos con gusto. Sin cita también puedes llegar, pero te recomendamos agendar para no esperar.</p>
+    </div>
+    <div>
+      <div class="schedule-row"><span>Lunes</span><span>9:00 – 19:00</span></div>
+      <div class="schedule-row"><span>Martes</span><span>9:00 – 19:00</span></div>
+      <div class="schedule-row"><span>Miércoles</span><span>9:00 – 19:00</span></div>
+      <div class="schedule-row"><span>Jueves</span><span>9:00 – 19:00</span></div>
+      <div class="schedule-row"><span>Viernes</span><span>9:00 – 20:00</span></div>
+      <div class="schedule-row"><span>Sábado</span><span>9:00 – 18:00</span></div>
+      <div class="schedule-row"><span>Domingo</span><span style="color:#ef4444">Cerrado</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="ubicacion">
+  <div class="location-inner">
+    <div>
+      <div class="section-tag">Encuéntranos</div>
+      <h2 class="section-title">Ubicación</h2>
+      <p style="color:var(--gray);line-height:1.8;margin-bottom:20px">
+        📍 Calle Ejemplo #123, Col. Centro<br>
+        Ciudad, Estado, CP 01234<br><br>
+        📞 55 1234 5678<br>
+        📧 contacto@ejemplo.com
+      </p>
+      <a href="https://wa.me/521234567890?text=Hola,%20quiero%20agendar%20una%20cita" class="btn btn-primary" id="contacto">Agendar cita</a>
+    </div>
+    <div class="map-placeholder">📍 Mapa de Google aquí</div>
+  </div>
+</section>
+
+<a class="wa-float" href="https://wa.me/521234567890?text=Hola,%20quiero%20información" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 2a10 10 0 00-8.493 15.262L2 22l4.875-1.476A10 10 0 1012 2z"/></svg>
+</a>
+
+<footer>
+  <p>© 2026 Nombre del Salón · Todos los derechos reservados</p>
+  <p style="margin-top:8px">Sitio web por <a href="https://aaron1145563.github.io/trazo-web-landing/" target="_blank">Trazo Web Studio</a></p>
+</footer>
+
+<script>
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
